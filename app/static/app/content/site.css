@@ -1,0 +1,125 @@
+﻿body {
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar {
+    margin-bottom: 0px;
+    padding: 30px 15px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+@media (max-width: 400px) {
+    .navbar-header {
+        position: relative;
+    }
+    .navbar img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 70%;
+    }
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: #bbb;
+}
+
+.cbp-af-header-shrink {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    opacity: 0.9;
+}
+
+.fill-screen {
+    background-size: cover;
+    background-position: center;
+}
+
+.title-row {
+    position: relative;
+    min-height: 300px;
+}
+.title-image {
+    position: absolute;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+
+.fixed-attachment {
+    background-attachment: fixed;
+}
+
+.main-section {
+    margin: 20px 20px
+}
+
+.image-bar img{
+    width: 150px;
+    height: 150px;
+}
+
+.image-bar {
+    margin: 20px 20px;
+    height: 150px;
+}
+
+.down-button {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+}
+.down-button i {
+    color: white;
+}
+
+footer {
+    background-color: #333;
+    color: #ddd;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}

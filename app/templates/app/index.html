@@ -1,0 +1,235 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+<div class="container-fluid">
+
+	<section class="row title-row">
+		<div class="fill-screen stellar-bg" 
+			 style="background-image: url({% static 'app/img/main_bg.JPG' %})"
+			 data-stellar-background-ratio="0.2">
+			<img class="img-responsive title-image" src="{% static 'app/img/site_logo2.png' %}" alt="Site Logo">
+
+            <div class="down-button">
+                <a class="btn" href="#career">
+                    <i class="fa fa-arrow-circle-down fa-4x"></i>
+                </a>
+            </div>
+		</div>
+	</section>
+
+	<section id="career" class="row main-section">
+		<h1>Career story</h1>
+		<p>
+			Purpose of this web application is to work as marketing material for me and provide information about my capabilities and interests.
+			My professional career started in year 2003 when I first joined Nokia for summer trainee position. At that time I had 3 years of my 
+			master of science studies done and couple of years ahead. My first years I was doing many applications and scripts that were helping 
+			to automate and streamline integration processes phones software. I got graduated in December 2004. My main subject was Software Engineering
+			and subsidiary subjects Digital and Computer Engineering and Communication Networks and Protocols.
+		</p>
+		<p>
+			In the beginning of 2007 I decided to pursue different kind of challenges and moved from SW integration to SW Customization area. In this position
+			my main job was to study how different operator requirements can be implemented by variating the SW. After the technical implementation was clear it
+			was documented so that group of subcontractors were able to perform the same steps for other products and operators. During these years I also continued 
+			SW development activites, for example I created test automation system, which purpose was to verify that manually created SW variants were configured 
+			according to customer specification. I also implement set of small tools that made creation of SW variants simpler and less error prone. This was the
+			beginning of moving to more automated solutions, which requires less and less manual work and subcontracting.
+		</p>
+		<p>
+			In November 2008 I decided that it was a time to move forward. I applied and got selected to Product Owner position for Configuration Tools team. Our
+			main product at that point was Eclipse based stand-alone tool that was used to create different customization files for Nokia S60 phones. Team also produced
+			set of other tools like SW image creation tool. Main technologies at this point were Java and Perl. Pretty soon there raised requirement to automate integration
+			and SW customization process more and at that point we started to implement Web based solution to solve this problem. This was complemented with Python application,
+			which handled file generation part of the process. We selected Django as Web Framework. It is written in Python and this way majority of tooling in the team was
+			using the same programming language, which made easy to move persons across the tools. Due to automation within short period of time subcontractor amount was reduced
+			by 90% and this saved several millions of euros to the company. My duties within the project included lots of planning and designing of the system but I also coded 
+			many parts of the application, held the trainings and created user documentation. This first generation of the SW Customization tool chain was used for SW platforms like
+			S40, Symbian S60, MeeGo and Windows Phone 7.X.
+		</p>
+		<p>
+			Due to organizational changes in year 2012 I got opportunity to take more responsibilities in addition to Product Owner role. I first time got direct reports. During this time 
+			we also had few subcontractors working in the same Scrum team. Line management duties included resource planning, subcontracting management and normal people management 
+			responsibilities like having feedback sessions, 1-to-1s and making personal development plans. At the same time in Product owner role I was designing and specifying next
+			generation SW Customization toolchain for new SW Platforms. Main improvements compared to previous system were much clearer responsibilities of systems involved in the process
+			and automating even larger part of the SW delivery chain. Separation of the services was implemented by specifying set of ReST APIs that were used system to system communication. 
+			As example UI part of the system was separated from SW Customization business logic with one ReST API and furthermore SW Customization business logic was separated from
+			SW Image creation process with another ReST API. There was many services that were used across different phone SW platforms. In automation side for the first time SW delivery all
+			factories and care points was fully automated. This removed the last need for subcontracting. Different instances of this project were used in phone SW platforms like Nokia X, S30+,
+			Nokia Tablet and Windows Phone 8.x.
+		</p>
+		<p>
+			After another re-organization in year 2014 team increased with four people. We got responsibilites of doing quality assurance activities within the team and also couple of
+			persons that were already working for the same tools were moved in line management wise also to the team. First time team wasn't co-located. There was one person working from 
+			Salo while others were still in Tampere. Microsoft decision to stop several SW platforms and streamline the business also had impact on how SW Customization was done in general.
+			This opened opportunity to create less distributed and more focused system for Windows Phone 10 needs. I was responsible of leading this project. I consider myself as main architect
+			of the system (while of course there were several others also included in the work). This time work was done by several different teams and totally work took almost one year and 
+			had more than 50 active persons working with it. Main difference compared to previous systems was change of configuration architecture to more modular. As example individual
+			configuration points were splitted to layers, which were handled separately in the tooling. This helped to minimize work needed to maintain configurations and provided greater
+			reuse of them. Also first time ever each Windows Phone 10 device worked optimally in every SW variant. No matter if user inserted Sonera or Elisa Sim card to Finnish or Spanish variant, 
+			all network settings were still configured in optimal way. In this project I was involved in everything from designing and coding to deployments and trainings. In this third generation
+			of SW Customization tool chain we still had Python and Django in server side but UI was built using Angular.js. As system has been now in use more than an year I can say that 
+			this generation has really proven to be very flexible, easy to maintain and achieved all business goals for it.
+		</p>
+		<p>
+			After the second last re-organization I got selected to lead Build, Integration and Customization Tools team. Our responsibility area covered the whole SW delivery chain starting
+			from Qualcomm and Windows intake to delivering SW images to factories, Care points and over-the-air to customers. Team structure was also quite much different. Team was located
+			equally in two sites: Tampere and Espoo and team consisted of several nationalities and ethical backgrounds. Totally team was responsible of over 50 different SW tools and we 
+			actively developed roughly 10 of those. I want to cover 2 projects in more detail. The first was a system that based on the phone activation and configuration data decided whether
+			certain volume based licenses must be paid or not. This was implemented as Azure WebApp using C# and ASP.NET in server side and Angular.js and JQuery in UI code. The second system 
+			targeted to deliver SW from RD to factories and service points using Azure in a way that requires less infrastructre and installation in factories that current system. This was 
+			implemented as mixed Azure WebApp and Windows Service running in factory premises. This was implemented with C# and ASP.NET. 
+		</p>
+		<p>
+			Now when Microsoft has announced to to discontinue phone operations in Finland it is time to think next steps. I am looking for positions that include more coding related activities
+			than previously. I can imagine myself doing mainly coding and rest of the time with customer to define what needs to implemented for their problem. I really want to be in more
+			close co-operation with customer and have first-hand contact there. That is something I haven't experienced too much yet. I see that something is missing even I have in many 
+			projects defined features and splitted those to user stories. Prioritization and definition with customer instead of Product Managers just feels more right. On the other hand
+			unfortunately I haven't had time to do enough coding in my current role and that has frustrated me quite much. My target was to use 30% time for coding activities but in very 
+			few week I have been able to achieve that.
+		</p>
+	</section>
+
+	<section id="flower" class="row">
+		<div class="fill-screen fixed-attachment" 
+			 style="background-image: url({% static 'app/img/apple_flower.JPG' %})">
+		</div>
+	</section>
+
+	<section id="strengths" class="row main-section">
+		<h1>Strengths</h1>
+
+		<p>
+			<ul>
+				<li>Strong technical expertise in variety of technologies</li>
+				<li>Proven hands-on expertise in working with Agile methods</li>
+				<li>Excellent people and teamwork skills</li>
+				<li>Solution driven and can-do attitude</li>
+				<li>Persistance - not giving up</li>
+			</ul>
+					
+		</p>
+
+	</section>
+
+	<section id="svan" class="row">
+		<div class="fill-screen fixed-attachment" 
+			 style="background-image: url({% static 'app/img/svan.JPG' %})">
+		</div>
+	</section>
+
+	<section id="achievements" class="row main-section">
+		<h1>Achievements</h1>
+
+		<p>
+			<ul>
+				<li>
+					Managed more than 10 rounds of reductions. I have done something right as company has always wanted me to continue.
+					Team has increased in each round of reductions, which proves that work has been meaningful and worth investing more.
+				</li>
+				<li>
+					Several exceptional evaluations over the years and Microsoft High-Potential Nomination 2015.
+				</li>
+				<li>
+					Designing, specifying, leading and partly implementing three generations of SW Customization tool chain for almost
+					10 different SW platforms in each time on schedule and with planned content. Due to these tools need for subcontracting was
+					totally removed (from ~150 persons) and delivery times decreased from weeks to hours.
+				</li>
+				<li>
+					Driven usage of Agile methods and continuous integration not only to my own team but also across the organization.
+				</li>
+			</ul>
+					
+		</p>
+	</section>
+
+	<section id="flower2" class="row">
+		<div class="fill-screen fixed-attachment" 
+			 style="background-image: url({% static 'app/img/flower2.JPG' %})">
+		</div>
+	</section>
+
+	<section id="technologies" class="row main-section">
+		<h1>Technologies</h1>
+		<div class="image-bar">
+			<div class="col-md-3">
+				<img src="{% static 'app/img/python.png' %}" />
+			</div>
+			<div class="col-md-3">
+				<img src="{% static 'app/img/django.png' %}" />
+			</div>
+			<div class="col-md-3">
+				<img src="{% static 'app/img/html5.png' %}" />
+			</div>
+			<div class="col-md-3">
+				<img src="{% static 'app/img/jenkins.png' %}" />
+			</div>
+		</div> 
+		<div class="image-bar">
+			<div class="col-md-3">
+				<img src="{% static 'app/img/azure-logo.png' %}" />
+			</div>
+			<div class="col-md-3">
+				<img src="{% static 'app/img/css.png' %}" />
+			</div>
+			<div class="col-md-3">
+				<img src="{% static 'app/img/git.png' %}" />
+			</div>
+			<div class="col-md-3">
+				<img src="{% static 'app/img/rest.png' %}" />
+			</div>
+		</div> 
+
+	</section>
+
+	<section id="hobbies_bg" class="row">
+		<div class="fill-screen fixed-attachment" 
+			 style="background-image: url({% static 'app/img/hobby_bg.JPG' %})">
+		</div>
+	</section>
+
+
+	<section id="hobbies" class="row main-section">
+		<h1>Hobbies</h1>
+		<div class="image-bar">
+			<div class="col-md-4">
+				<img src="{% static 'app/img/fishing.png' %}" />
+				<h2>Fishing</h2>
+			</div>
+			<div class="col-md-4">
+				<img src="{% static 'app/img/cooking.png' %}" />
+				<h2>Cooking</h2>
+			</div>
+			<div class="col-md-4">
+				<img src="{% static 'app/img/hockey.png' %}" />
+				<h2>Ice Hockey</h2>
+			</div>
+		</div>
+		<div class="image-bar">
+			<div class="col-md-4">
+				<img src="{% static 'app/img/chip.png' %}" />
+				<h2>Coding + electronics</h2>
+			</div>
+			<div class="col-md-4">
+				<img src="{% static 'app/img/photography.png' %}" />
+				<h2>Photographing</h2>
+			</div>
+			<div class="col-md-4">
+				<img src="{% static 'app/img/renovation.png' %}" />
+				<h2>Renovation and construction</h2>
+			</div>
+		</div> 
+	</section>
+</div>
+
+<footer class="container-fluid">
+    <div class="row">
+        <h1>Jere Paavola</h1>
+		<b>Address:</b>Huuhkajankatu 4, 37140 Nokia
+		<br/>
+		<b>Phone number:</b>+358 50 486 7206
+    </div>
+</footer>
+
+
+{% endblock %}

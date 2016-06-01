@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>Jere Paavola's Home page</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
+	<link href="{% static 'app/content/font-awesome.min.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+	<header id="top">
+		<nav class="navbar navbar-inverse navbar-fixed-top cbp-af-header" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="#top" class="navbar-brand">Jere Paavola</a>
+				</div>
+				<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="#top">Home</a></li>
+						<li><a href="#career">Career Story</a></li>
+						<li><a href="#strengths">Strengths</a></li>
+						<li><a href="#achievements">Achievements</a></li>
+						<li><a href="#technologies">Technologies</a></li>
+						<li><a href="#hobbies">Hobbies</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+					{% include 'app/loginpartial.html' %}
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	{% block content %}{% endblock %}
+
+
+    <footer id="contact" class="container-fluid">
+		<div class="row">
+			<p>&copy; {{ year }} - Jere Paavola</p>
+		</div>
+    </footer>
+
+    <script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'app/scripts/bootstrap.min.js' %}"></script>
+    <script src="{% static 'app/scripts/respond.min.js' %}"></script>
+	<script src="{% static 'app/scripts/classie.js' %}"></script>
+	<script src="{% static 'app/scripts/cbpAnimatedHeader.js' %}"></script>
+	<script src="{% static 'app/scripts/jquery.easing.1.3.js' %}"></script>
+	<script src="{% static 'app/scripts/jquery.stellar.js' %}"></script>
+	<script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
+	<script src="{% static 'app/scripts/background.js' %}"></script>
+{% block scripts %}{% endblock %}
+
+</body>
+</html>
