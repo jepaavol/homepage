@@ -17,9 +17,6 @@ __pycache__/
 # Auto-generated virtual environment
 /env/
 
-# Auto-generated web.config
-/web.config
-
 # Auto-collected static files folder
 /static/
 
