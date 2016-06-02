@@ -1,0 +1,125 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+{% load staticfiles %}
+{% load custom_tags %}
+
+<div class="container-fluid">
+
+	<section class="row title-row">
+		<div class="fill-screen stellar-bg" 
+			 style="background-image: url({% static page.main_bg.path %})"
+			 data-stellar-background-ratio="0.2">
+			<img class="img-responsive title-image" src="{% static 'app/img/site_logo2.png' %}" alt="Site Logo">
+
+            <div class="down-button">
+                <a class="btn" href="#careerstory">
+                    <i class="fa fa-arrow-circle-down fa-4x"></i>
+                </a>
+            </div>
+		</div>
+	</section>
+
+    {% for section in page.get_sections %}
+    <section id="{{section.title|lowerStrip}}" class="row {% if section.get_type == 'textSection' %}main-section{% endif %}">
+        {% if section.get_type == 'textSection' %}
+            <h1>{{ section.title }}</h1>
+            {% for paragraph in section.get_paragraphs %}
+            <p>
+                {{ paragraph.content|safe }}
+            </p>
+            {% endfor %}
+        {%elif section.get_type == 'imageSection'%}
+            <div class="fill-screen fixed-attachment" 
+			     style="background-image: url({% static section.images.path %})">
+		    </div>
+        {% endif %}
+
+    </section>
+
+    {% endfor %}
+
+	<section id="technologies" class="row main-section">
+		<h1>Technologies</h1>
+		<div class="image-bar">
+			<div class="col-md-3">
+				<img src="{% static 'app/img/python.png' %}" />
+			</div>
+			<div class="col-md-3">
+				<img src="{% static 'app/img/django.png' %}" />
+			</div>
+			<div class="col-md-3">
+				<img src="{% static 'app/img/html5.png' %}" />
+			</div>
+			<div class="col-md-3">
+				<img src="{% static 'app/img/jenkins.png' %}" />
+			</div>
+		</div> 
+		<div class="image-bar">
+			<div class="col-md-3">
+				<img src="{% static 'app/img/azure-logo.png' %}" />
+			</div>
+			<div class="col-md-3">
+				<img src="{% static 'app/img/css.png' %}" />
+			</div>
+			<div class="col-md-3">
+				<img src="{% static 'app/img/git.png' %}" />
+			</div>
+			<div class="col-md-3">
+				<img src="{% static 'app/img/rest.png' %}" />
+			</div>
+		</div> 
+
+	</section>
+
+	<section id="hobbies_bg" class="row">
+		<div class="fill-screen fixed-attachment" 
+			 style="background-image: url({% static 'app/img/hobby_bg.JPG' %})">
+		</div>
+	</section>
+
+
+	<section id="hobbies" class="row main-section">
+		<h1>Hobbies</h1>
+		<div class="image-bar">
+			<div class="col-md-4">
+				<img src="{% static 'app/img/fishing.png' %}" />
+				<h2>Fishing</h2>
+			</div>
+			<div class="col-md-4">
+				<img src="{% static 'app/img/cooking.png' %}" />
+				<h2>Cooking</h2>
+			</div>
+			<div class="col-md-4">
+				<img src="{% static 'app/img/hockey.png' %}" />
+				<h2>Ice Hockey</h2>
+			</div>
+		</div>
+		<div class="image-bar">
+			<div class="col-md-4">
+				<img src="{% static 'app/img/chip.png' %}" />
+				<h2>Coding + electronics</h2>
+			</div>
+			<div class="col-md-4">
+				<img src="{% static 'app/img/photography.png' %}" />
+				<h2>Photographing</h2>
+			</div>
+			<div class="col-md-4">
+				<img src="{% static 'app/img/renovation.png' %}" />
+				<h2>Renovation and construction</h2>
+			</div>
+		</div> 
+	</section>
+</div>
+
+<footer class="container-fluid">
+    <div class="row">
+        <h1>Jere Paavola</h1>
+		<b>Address:</b>Huuhkajankatu 4, 37140 Nokia
+		<br/>
+		<b>Phone number:</b>+358 50 486 7206
+    </div>
+</footer>
+
+
+{% endblock %}

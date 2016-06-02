@@ -8,13 +8,14 @@ from app.forms import BootstrapAuthenticationForm
 
 from django.conf.urls import include
 from django.contrib import admin
+from app import views
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', 'app.views.home', name='home'),
-    url(r'^contact$', 'app.views.contact', name='contact'),
-    url(r'^about', 'app.views.about', name='about'),
+    url(r'^old$', views.home),
+    url(r'^$', views.home_dynamic),
     url(r'^login/$',
         'django.contrib.auth.views.login',
         {

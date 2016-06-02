@@ -5,10 +5,14 @@ Definition of views.
 from django.shortcuts import render
 from django.http import HttpRequest
 from django.template import RequestContext
+from django.contrib.contenttypes.models import ContentType
 from datetime import datetime
+from app.models import Page, Section
 
 def home(request):
-    """Renders the home page."""
+    """
+    Renders the home page. Deprecated static implementation.
+    """
     assert isinstance(request, HttpRequest)
     return render(
         request,
@@ -20,30 +24,22 @@ def home(request):
         })
     )
 
-def contact(request):
-    """Renders the contact page."""
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/contact.html',
-        context_instance = RequestContext(request,
-        {
-            'title':'Contact',
-            'message':'Your contact page.',
-            'year':datetime.now().year,
-        })
-    )
+def home_dynamic(request):
+    """
+    Renders home page dynamically from the database entries
+    """
 
-def about(request):
-    """Renders the about page."""
-    assert isinstance(request, HttpRequest)
+    #FIX: fetch based on page name
+    page = Page.objects.get(id=1)
+    sections = Section.objects.filter(page=page)
+
     return render(
-        request,
-        'app/about.html',
+        request, 
+        'app/home.html',
         context_instance = RequestContext(request,
         {
-            'title':'About',
-            'message':'Your application description page.',
+            'page': page,
             'year':datetime.now().year,
         })
-    )
+     )
+            
