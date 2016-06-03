@@ -1,4 +1,4 @@
-﻿{% extends "app/layout.html" %}
+{% extends "app/layout.html" %}
 
 {% block content %}
 {% load staticfiles %}
@@ -21,7 +21,7 @@
 	</section>
 
     {% for section in page.get_sections %}
-    <section id="{{section.title|lowerStrip}}" class="row {% if section.get_type == 'textSection' %}main-section{% endif %}">
+    <section id="{{section.title|lowerStrip}}" class="{% if section.css_class %}{{ section.css_class }}{% endif %}">
         {% if section.get_type == 'textSection' %}
             <h1>{{ section.title }}</h1>
             {% for paragraph in section.get_paragraphs %}
@@ -29,87 +29,31 @@
                 {{ paragraph.content|safe }}
             </p>
             {% endfor %}
-        {%elif section.get_type == 'imageSection'%}
-            <div class="fill-screen fixed-attachment" 
-			     style="background-image: url({% static section.images.path %})">
+        {% elif section.get_type == 'imageSection' %}
+            <div class="{% if section.image.css_class %}{{ section.image.css_class }}{% endif %}" 
+			     style="background-image: url({% static section.image.path %})">
 		    </div>
+        {% elif section.get_type == 'iconSection' %}
+            <h1>{{ section.title }}</h1>
+            {% for ib in section.get_imagebars %}
+            <div class="{% if ib.css_class %}{{ ib.css_class }}{% endif %}">
+                {% for image in ib.get_images %}
+                <div class="{% if image.css_class %}{{ image.css_class }}{% endif %}">
+                    <img src="{% static image.path %}" />
+                    {% if image.title %}
+                    <h2>{{ image.title }}</h2>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        {% else %}
+            <h1>UNKNOWN SECTION</h1>
         {% endif %}
 
     </section>
 
     {% endfor %}
-
-	<section id="technologies" class="row main-section">
-		<h1>Technologies</h1>
-		<div class="image-bar">
-			<div class="col-md-3">
-				<img src="{% static 'app/img/python.png' %}" />
-			</div>
-			<div class="col-md-3">
-				<img src="{% static 'app/img/django.png' %}" />
-			</div>
-			<div class="col-md-3">
-				<img src="{% static 'app/img/html5.png' %}" />
-			</div>
-			<div class="col-md-3">
-				<img src="{% static 'app/img/jenkins.png' %}" />
-			</div>
-		</div> 
-		<div class="image-bar">
-			<div class="col-md-3">
-				<img src="{% static 'app/img/azure-logo.png' %}" />
-			</div>
-			<div class="col-md-3">
-				<img src="{% static 'app/img/css.png' %}" />
-			</div>
-			<div class="col-md-3">
-				<img src="{% static 'app/img/git.png' %}" />
-			</div>
-			<div class="col-md-3">
-				<img src="{% static 'app/img/rest.png' %}" />
-			</div>
-		</div> 
-
-	</section>
-
-	<section id="hobbies_bg" class="row">
-		<div class="fill-screen fixed-attachment" 
-			 style="background-image: url({% static 'app/img/hobby_bg.JPG' %})">
-		</div>
-	</section>
-
-
-	<section id="hobbies" class="row main-section">
-		<h1>Hobbies</h1>
-		<div class="image-bar">
-			<div class="col-md-4">
-				<img src="{% static 'app/img/fishing.png' %}" />
-				<h2>Fishing</h2>
-			</div>
-			<div class="col-md-4">
-				<img src="{% static 'app/img/cooking.png' %}" />
-				<h2>Cooking</h2>
-			</div>
-			<div class="col-md-4">
-				<img src="{% static 'app/img/hockey.png' %}" />
-				<h2>Ice Hockey</h2>
-			</div>
-		</div>
-		<div class="image-bar">
-			<div class="col-md-4">
-				<img src="{% static 'app/img/chip.png' %}" />
-				<h2>Coding + electronics</h2>
-			</div>
-			<div class="col-md-4">
-				<img src="{% static 'app/img/photography.png' %}" />
-				<h2>Photographing</h2>
-			</div>
-			<div class="col-md-4">
-				<img src="{% static 'app/img/renovation.png' %}" />
-				<h2>Renovation and construction</h2>
-			</div>
-		</div> 
-	</section>
 </div>
 
 <footer class="container-fluid">
