@@ -1,9 +1,17 @@
 {% extends "app/layout.html" %}
-
-{% block content %}
 {% load staticfiles %}
 {% load custom_tags %}
 
+{% block navi_items %}
+<li><a href="#top">Home</a></li>
+{% for section in page.get_sections %}
+{% if section.get_type == 'textSection' or section.get_type == 'iconSection'%}
+<li><a href="#{{section.title|lowerStrip}}">{{ section.title }}</a></li>
+{% endif %}
+{% endfor %}
+{% endblock %}
+
+{% block content %}
 <div class="container-fluid">
 
 	<section class="row title-row">
