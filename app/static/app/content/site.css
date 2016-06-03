@@ -10,18 +10,6 @@
     transition: all 0.5s;
 }
 
-@media (max-width: 400px) {
-    .navbar-header {
-        position: relative;
-    }
-    .navbar img {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        width: 70%;
-    }
-}
 .navbar-inverse .navbar-nav>li>a {
     color: #bbb;
 }
@@ -66,7 +54,6 @@
 
 .image-bar {
     margin: 20px 20px;
-    height: 150px;
 }
 
 .down-button {
@@ -86,20 +73,17 @@ footer {
     text-align: center;
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
     max-width: 280px;
 }
 
-/* styles for validation helpers */
 .field-validation-error {
     color: #b94a48;
 }
@@ -123,3 +107,18 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+/* Media Queries*/
+
+@media (max-width: 1024px){
+    .fixed-attachment {
+        background-attachment: scroll;
+    }	
+}
+
+@media (max-width: 400px) {
+    .navbar-header {
+        position: relative;
+    }
+}}
+
