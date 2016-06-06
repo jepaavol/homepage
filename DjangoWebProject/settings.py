@@ -13,7 +13,7 @@ ALLOWED_HOSTS = (
 )
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Jere Paavola', 'jere.paavola@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -134,6 +134,7 @@ INSTALLED_APPS = (
     'app',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'rest_framework',
 )
 
 # A sample logging configuration. The only tangible logging

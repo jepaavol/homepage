@@ -52,6 +52,7 @@ class Section(PolymorphicModel, OrderAwareModel, CssClassInfo):
     """
 
     SECTION_TYPE='section' 
+    API_NAME='section' 
 
     title = models.CharField(max_length = 128)
 
