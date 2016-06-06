@@ -6,6 +6,8 @@ from django.shortcuts import render
 from django.http import HttpRequest
 from django.template import RequestContext
 from django.contrib.contenttypes.models import ContentType
+from django.http import HttpResponse
+from django.conf import settings
 
 from rest_framework import viewsets
 
@@ -29,13 +31,15 @@ def home(request):
         })
     )
 
-def home_dynamic(request):
+
+def page_loader(request, page_name):
     """
-    Renders home page dynamically from the database entries
+    General page loader view function.
     """
 
-    #FIX: fetch based on page name
-    page = Page.objects.get(id=1)
+    if not page_name:
+        page_name = settings.DEFAULT_PAGE 
+    page = Page.objects.get(short_name=page_name)
     sections = Section.objects.filter(page=page)
 
     return render(
@@ -47,7 +51,7 @@ def home_dynamic(request):
             'year':datetime.now().year,
         })
      )
-            
+ 
 
 class PageViewSet(viewsets.ReadOnlyModelViewSet):
     """
