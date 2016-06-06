@@ -51,6 +51,8 @@ class Section(PolymorphicModel, OrderAwareModel, CssClassInfo):
     Class to represent section of a page.
     """
 
+    SECTION_TYPE='section' 
+
     title = models.CharField(max_length = 128)
 
     def __str__(self):
@@ -58,7 +60,7 @@ class Section(PolymorphicModel, OrderAwareModel, CssClassInfo):
 
     @property
     def get_type(self):
-        return "section"
+        return self.SECTION_TYPE
 
 
 class TextSection(Section):
@@ -66,11 +68,9 @@ class TextSection(Section):
     Section mentioned to present textual data that is in paragraphs.
     """
 
-    paragraphs = models.ManyToManyField('Paragraph')
+    SECTION_TYPE='textSection' 
 
-    @property
-    def get_type(self):
-        return "textSection"
+    paragraphs = models.ManyToManyField('Paragraph')
 
     @property
     def get_paragraphs(self):
@@ -82,11 +82,9 @@ class IconSection(Section):
     Section representing icon data
     """
 
-    imageBars = models.ManyToManyField('ImageBar')
+    SECTION_TYPE='iconSection' 
 
-    @property
-    def get_type(self):
-        return "iconSection"
+    imageBars = models.ManyToManyField('ImageBar')
 
     @property
     def get_imagebars(self):
@@ -98,11 +96,9 @@ class ImageSection(Section):
     Section representing icon data
     """
 
-    image = models.ForeignKey('Image')
+    SECTION_TYPE='imageSection' 
 
-    @property
-    def get_type(self):
-        return "imageSection"
+    image = models.ForeignKey('Image')
 
 
 class Paragraph(OrderAwareModel, CssClassInfo):
