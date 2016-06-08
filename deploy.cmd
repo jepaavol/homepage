@@ -148,7 +148,7 @@ IF EXIST "%DEPLOYMENT_TARGET%\manage.py" (
 )
 
 :: 7 Restoring settings file
-IF EXIST "..\%DEPLOYMENT_TARGET%\settings\settings.py"(
+IF EXIST "..\%DEPLOYMENT_TARGET%\settings\settings.py" (
   echo Overwriting GIT settings with production settings
   copy /y "..\%DEPLOYMENT_TARGET%\settings\settings.py" "%DEPLOYMENT_TARGET%\DjangoWebProject\settings.py"
 )
