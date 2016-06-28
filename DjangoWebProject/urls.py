@@ -28,8 +28,6 @@ router.register(str(views.ParagraphViewSet().serializer_class.Meta.model.__name_
 
 
 urlpatterns = patterns('',
-    # Examples:
-    url(r'^old$', views.home),    
     url(r'^login/$',
         'django.contrib.auth.views.login',
         {
@@ -55,5 +53,6 @@ urlpatterns = patterns('',
     url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls',
                                namespace='rest_framework')),
+    url(r'^angular/', views.page_angular),
     url(r'^(?P<page_name>\w*)$', views.page_loader),
 )

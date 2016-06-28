@@ -29,6 +29,16 @@ class ImageSerializer(serializers.ModelSerializer, SerializerHelpers):
     class Meta:
         model = Image
 
+    def to_representation(self, obj):
+        """
+        Path in db doesn't know in which static path it is located
+        """
+
+        #TODO: do better static file handling for API.
+        data = super().to_representation(obj)
+        data['path'] = '/static/' + data['path']
+        return data
+
 
 class ImageBarSerializer(serializers.ModelSerializer, SerializerHelpers):
     """
@@ -77,6 +87,7 @@ class SectionSerializer(serializers.ModelSerializer, SerializerHelpers):
 
         data = serializer.to_representation(obj)
         data['url'] = self.get_object_url(obj)
+        data['type'] = obj.get_type
         return data
 
 

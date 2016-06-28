@@ -54,6 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\" />
+    <Folder Include="app\static\app\scripts\controllers\" />
+    <Folder Include="app\static\app\scripts\directives\" />
+    <Folder Include="app\static\app\scripts\filters\" />
+    <Folder Include="app\static\app\scripts\services\" />
     <Folder Include="app\templatetags\" />
     <Folder Include="app\static\" />
     <Folder Include="app\static\app\" />
@@ -101,14 +105,24 @@
     <Content Include="app\static\app\img\sql.png" />
     <Content Include="app\static\app\img\svan.JPG" />
     <Content Include="app\static\app\img\site_logo.png" />
+    <Content Include="app\static\app\scripts\angular-sanitize.min.js" />
+    <Content Include="app\static\app\scripts\angular-scroll.min.js" />
+    <Content Include="app\static\app\scripts\angular.min.js" />
+    <Content Include="app\static\app\scripts\app.js" />
     <Content Include="app\static\app\scripts\background.js" />
     <Content Include="app\static\app\scripts\cbpAnimatedHeader.js" />
     <Content Include="app\static\app\scripts\classie.js" />
+    <Content Include="app\static\app\scripts\controllers\pageController.js" />
+    <Content Include="app\static\app\scripts\directives\resizeLoadDirective.js" />
+    <Content Include="app\static\app\scripts\directives\divImageDirective.js" />
+    <Content Include="app\static\app\scripts\filters\filters.js" />
     <Content Include="app\static\app\scripts\jquery.easing.1.3.js" />
     <Content Include="app\static\app\scripts\jquery.stellar.js" />
     <Content Include="app\static\app\scripts\jquery.stellar.min.js" />
     <Content Include="app\static\app\img\main_bg.JPG" />
     <Content Include="app\static\app\scripts\npm.js" />
+    <Content Include="app\static\app\scripts\underscore-min.js" />
+    <Content Include="app\templates\app\angular_home.html" />
     <Content Include="app\templates\app\home.html" />
     <Content Include="db.sqlite3" />
     <Content Include="requirements.txt" />

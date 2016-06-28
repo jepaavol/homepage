@@ -16,17 +16,17 @@ from app.models import Page, Section, Image, ImageBar, Paragraph
 from app.serializers import PageSerializer, ImageSerializer, ImageBarSerializer, SectionSerializer, ParagraphSerializer
 
 
-def home(request):
+def page_angular(request):
     """
-    Renders the home page. Deprecated static implementation.
     """
     assert isinstance(request, HttpRequest)
+    page = Page.objects.get(short_name='main')
     return render(
         request,
-        'app/index.html',
+        'app/angular_home.html',
         context_instance = RequestContext(request,
         {
-            'title':'Home Page',
+            'page': page,
             'year':datetime.now().year,
         })
     )
@@ -40,7 +40,6 @@ def page_loader(request, page_name):
     if not page_name:
         page_name = settings.DEFAULT_PAGE 
     page = Page.objects.get(short_name=page_name)
-    sections = Section.objects.filter(page=page)
 
     return render(
         request, 

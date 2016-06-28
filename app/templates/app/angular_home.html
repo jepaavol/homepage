@@ -1,0 +1,110 @@
+﻿{% load staticfiles %}
+{% load custom_tags %}
+
+<!DOCTYPE html>
+<html ng-app="page">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>Jere Paavola's Home page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
+	<link href="{% static 'app/content/font-awesome.min.css' %}" rel="stylesheet" />    
+</head>
+
+
+<body ng-controller="PageController" ng-cloak>
+	<!-- Navibar and it's controls -->
+    <header id="top">
+		<nav class="navbar navbar-inverse navbar-fixed-top cbp-af-header" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="#top" class="navbar-brand">Jere Paavola</a>
+				</div>
+				<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                    <li><a href="#top" offset=160 du-smooth-scroll du-scrollspy>Home</a></li>
+                    {%verbatim%}
+                    <li ng-repeat="item in naviItems"><a href="#{{ item.title | removeSpacesLower }}" offset=160 du-smooth-scroll du-scrollspy>{{ item.title }}</a></li>
+                    {%endverbatim%}
+					</ul>
+					{% include 'app/loginpartial.html' %}
+				</div>
+			</div>
+		</nav>
+	</header>
+
+    <!-- Main area of the page -->
+    <div class="container-fluid">    
+        
+        {%verbatim%}
+        <!-- Main background and introduction items -->
+        <section class="row title-row">
+		    <div class="fill-screen stellar-bg"                  
+			     div-img={{page.main_bg.path}}
+			     data-stellar-background-ratio="0.2" resize-load>
+			    <img class="img-responsive title-image" src="/static/app/img/site_logo2.png" alt="Site Logo">
+                <div class="down-button">
+                    <a class="btn" href="#{{naviItems[0].title | removeSpacesLower }}" offset=160 du-smooth-scroll du-scrollspy>
+                        <i class="fa fa-arrow-circle-down fa-4x"></i>
+                    </a>
+                </div>
+		    </div>
+	    </section>
+
+        <section ng-repeat="section in sections" class="{{ section.css_class }}" id="{{section.title|removeSpacesLower}}">
+            <h1 ng-show="section.showHeader">{{ section.title }}</h1>
+            <p ng-repeat="paragraph in section.paragraphs" ng-bind-html="paragraph.content">
+            </p>
+            <div ng-if="section.image" class="{{ section.image.css_class }}"
+                 div-img="{{section.image.path}}" resize-load>
+            </div>
+            <div ng-repeat="imagebar in section.imageBars" class="{{imagebar.css_class}}">
+                <div ng-repeat="image in imagebar.images" class="{{image.css_class}}">
+                    <img ng-src="{{image.path}}"/>
+                    <h2>{{image.title}}</h2>
+
+                </div>
+            </div>
+        </section>
+        {%endverbatim%}
+    </div>
+
+    <footer id="contact" class="container-fluid">
+        <div class="row">
+            <h1>Jere Paavola</h1>
+		    <b>Address:</b>Huuhkajankatu 4, 37140 Nokia
+		    <br/>
+		    <b>Phone number:</b>+358 50 486 7206
+        </div>
+	    <div class="row">
+		    <p>&copy; {{ year }} - Jere Paavola</p>
+	    </div>
+    </footer>
+
+
+    //Javascript files
+    <script src="{% static 'app/scripts/angular.min.js' %}"></script>
+    <script src="{% static 'app/scripts/angular-sanitize.min.js' %}"></script>
+    <script src="{% static 'app/scripts/angular-scroll.min.js' %}"></script>
+    <script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'app/scripts/bootstrap.min.js' %}"></script>
+    <script src="{% static 'app/scripts/respond.min.js' %}"></script>
+	<script src="{% static 'app/scripts/classie.js' %}"></script>
+	<script src="{% static 'app/scripts/cbpAnimatedHeader.js' %}"></script>
+	<script src="{% static 'app/scripts/jquery.easing.1.3.js' %}"></script>
+	<script src="{% static 'app/scripts/jquery.stellar.js' %}"></script>
+	<script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
+    <script src="{% static 'app/scripts/underscore-min.js' %}"></script>
+    <script src="{% static 'app/scripts/controllers/pageController.js' %}"></script>
+    <script src="{% static 'app/scripts/directives/divImageDirective.js' %}"></script>
+    <script src="{% static 'app/scripts/directives/resizeLoadDirective.js' %}"></script>
+    <script src="{% static 'app/scripts/filters/filters.js' %}"></script>
+    <script src="{% static 'app/scripts/app.js' %}"></script>
+</body>
+</html>
